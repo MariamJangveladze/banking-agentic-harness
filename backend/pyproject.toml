@@ -1,0 +1,36 @@
+[project]
+name = "banking-agentic-harness"
+version = "0.1.0"
+description = "Governed LangGraph harness for internal banking operations."
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "fastapi[standard]>=0.115,<1.0",
+  "langchain>=1.0,<2.0",
+  "langchain-core>=1.0,<2.0",
+  "langchain-chroma>=1.0,<2.0",
+  "langchain-ollama>=1.0,<2.0",
+  "langgraph>=1.0,<2.0",
+  "langgraph-checkpoint-postgres>=3.0,<4.0",
+  "psycopg[binary]>=3.2,<4.0",
+  "pydantic>=2.10,<3.0",
+  "python-dotenv>=1.0,<2.0",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.0", "httpx>=0.28", "ruff>=0.11"]
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/banking_harness"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"

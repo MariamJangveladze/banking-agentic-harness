@@ -1,0 +1,23 @@
+apiVersion: banking-ai-core/v1alpha1
+kind: ProcessPackage
+metadata:
+  name: product-process-change
+  version: 0.1.0
+  owner: Product Support
+  maturity: simulation
+spec:
+  entrypoint: banking_harness.graph:build_product_change_graph
+  supportedPaths: [CHANGE_TO_EXISTING/PROCESS]
+  agents: [risk-impact, operations-impact, technology-impact]
+  knowledge:
+    provider: fixture
+    productionTarget: chroma-ollama
+  models:
+    default: deterministic/fixture-v1
+    localTarget: ollama/qwen2.5:7b
+  controls:
+    maxAgentIterations: 3
+    citationsRequired: true
+    humanApprovalRequired: true
+    externalWritesEnabled: false
+  evals: [required_evidence, impact_coverage, citation_coverage, source_linkage]
