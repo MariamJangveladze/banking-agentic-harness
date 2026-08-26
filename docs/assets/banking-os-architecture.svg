@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Banking OS target-state architecture</title>
+  <desc id="desc">A governed coordination layer connects employee experiences to authoritative bank systems through control, composable execution, intelligence, interoperability, and cross-cutting evidence and resilience.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#090a0a"/>
+      <stop offset="1" stop-color="#101323"/>
+    </linearGradient>
+    <linearGradient id="os" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#151720"/>
+      <stop offset="1" stop-color="#111313"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity=".32"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#92a2ff"/>
+    </marker>
+    <style>
+      .sans{font-family:Inter,Arial,sans-serif}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+      .eyebrow{font-size:14px;letter-spacing:3px;fill:#92a2ff}.title{font-size:50px;font-weight:600;fill:#f0efe8}.subtitle{font-size:18px;fill:#8c918d}
+      .section{font-size:13px;letter-spacing:2px;fill:#8c918d}.cardTitle{font-size:18px;font-weight:600;fill:#f0efe8}.cardText{font-size:14px;fill:#8c918d}.small{font-size:12px;fill:#8c918d}.number{font-size:13px;fill:#92a2ff}
+    </style>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <circle cx="1440" cy="90" r="260" fill="#202645" opacity=".42"/>
+  <circle cx="130" cy="920" r="240" fill="#15312f" opacity=".25"/>
+
+  <text x="80" y="70" class="mono eyebrow">TARGET-STATE ARCHITECTURE</text>
+  <text x="80" y="130" class="sans title">Banking OS</text>
+  <text x="80" y="166" class="sans subtitle">A bank-owned control and interoperability layer for governed, composable intelligence.</text>
+  <rect x="1285" y="64" width="235" height="52" rx="2" fill="#202645" stroke="#92a2ff"/>
+  <text x="1402" y="85" text-anchor="middle" class="mono small" fill="#92a2ff">CONTROL PRINCIPLE</text>
+  <text x="1402" y="104" text-anchor="middle" class="sans small" fill="#f0efe8">Agents propose · Bank authorizes</text>
+
+  <!-- participation -->
+  <text x="80" y="226" class="mono section">EXPERIENCE &amp; PARTICIPATION</text>
+  <g filter="url(#shadow)">
+    <rect x="80" y="244" width="450" height="92" fill="#171919" stroke="#2a2e2c"/>
+    <rect x="575" y="244" width="450" height="92" fill="#171919" stroke="#2a2e2c"/>
+    <rect x="1070" y="244" width="450" height="92" fill="#171919" stroke="#2a2e2c"/>
+  </g>
+  <text x="106" y="276" class="mono number">01</text><text x="106" y="306" class="sans cardTitle">Employee workbenches</text><text x="106" y="327" class="sans small">Cases · operational views · decision support</text>
+  <text x="601" y="276" class="mono number">02</text><text x="601" y="306" class="sans cardTitle">APIs &amp; approved channels</text><text x="601" y="327" class="sans small">Shared identity, context and process entry</text>
+  <text x="1096" y="276" class="mono number">03</text><text x="1096" y="306" class="sans cardTitle">Human authority</text><text x="1096" y="327" class="sans small">Review · approve · reject · escalate</text>
+
+  <path d="M800 336 V378" stroke="#92a2ff" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Banking OS boundary -->
+  <rect x="80" y="384" width="1440" height="414" rx="3" fill="url(#os)" stroke="#92a2ff" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="80" y="384" width="1440" height="48" fill="#202645"/>
+  <text x="108" y="414" class="mono eyebrow">BANKING OS — BANK-OWNED COORDINATION LAYER</text>
+  <text x="1490" y="414" text-anchor="end" class="mono small">COMPOSABLE · MODEL-INDEPENDENT · AUDITABLE</text>
+
+  <!-- four main planes -->
+  <g>
+    <rect x="108" y="460" width="325" height="210" fill="#171919" stroke="#393e3b"/>
+    <rect x="455" y="460" width="325" height="210" fill="#171919" stroke="#393e3b"/>
+    <rect x="802" y="460" width="325" height="210" fill="#171919" stroke="#393e3b"/>
+    <rect x="1149" y="460" width="343" height="210" fill="#171919" stroke="#393e3b"/>
+    <rect x="108" y="460" width="325" height="4" fill="#aaffbc"/>
+    <rect x="455" y="460" width="325" height="4" fill="#92a2ff"/>
+    <rect x="802" y="460" width="325" height="4" fill="#d18bff"/>
+    <rect x="1149" y="460" width="343" height="4" fill="#79d9d1"/>
+  </g>
+  <text x="132" y="493" class="mono number">01 / CONTROL PLANE</text>
+  <text x="132" y="527" class="sans cardTitle">Authority before action</text>
+  <text x="132" y="559" class="sans cardText">Identity &amp; delegated authority</text><text x="132" y="585" class="sans cardText">Case &amp; task services</text><text x="132" y="611" class="sans cardText">Process &amp; capability registry</text><text x="132" y="637" class="sans cardText">Policy decisions &amp; obligations</text>
+
+  <text x="479" y="493" class="mono number">02 / COMPOSABLE EXECUTION</text>
+  <text x="479" y="527" class="sans cardTitle">Processes assembled safely</text>
+  <text x="479" y="559" class="sans cardText">Versioned process packages</text><text x="479" y="585" class="sans cardText">Durable orchestration</text><text x="479" y="611" class="sans cardText">Bounded domain agents</text><text x="479" y="637" class="sans cardText">Deterministic quality gates</text>
+
+  <text x="826" y="493" class="mono number">03 / INTELLIGENCE FABRIC</text>
+  <text x="826" y="527" class="sans cardTitle">Models as replaceable resources</text>
+  <text x="826" y="559" class="sans cardText">Policy-aware model routing</text><text x="826" y="585" class="sans cardText">Local &amp; hosted models</text><text x="826" y="611" class="sans cardText">Governed knowledge retrieval</text><text x="826" y="637" class="sans cardText">Evaluation &amp; safety services</text>
+
+  <text x="1173" y="493" class="mono number">04 / CAPABILITY FABRIC</text>
+  <text x="1173" y="527" class="sans cardTitle">Interoperability by contract</text>
+  <text x="1173" y="559" class="sans cardText">Canonical typed interfaces</text><text x="1173" y="585" class="sans cardText">Guarded tools &amp; APIs</text><text x="1173" y="611" class="sans cardText">Vendor &amp; system adapters</text><text x="1173" y="637" class="sans cardText">Events &amp; integration backbone</text>
+
+  <path d="M433 565 H455 M780 565 H802 M1127 565 H1149" stroke="#92a2ff" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- cross cutting -->
+  <rect x="108" y="696" width="1384" height="74" fill="#202645" stroke="#393e3b"/>
+  <text x="132" y="725" class="mono number">CROSS-CUTTING TRUST LAYER</text>
+  <text x="132" y="752" class="sans cardText" fill="#f0efe8">Evidence ledger</text>
+  <text x="390" y="752" class="sans cardText" fill="#f0efe8">Traces · metrics · lineage</text>
+  <text x="730" y="752" class="sans cardText" fill="#f0efe8">Retries · idempotency · recovery</text>
+  <text x="1128" y="752" class="sans cardText" fill="#f0efe8">Release control · kill switch</text>
+
+  <path d="M800 798 V840" stroke="#92a2ff" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- authoritative ecosystem -->
+  <text x="80" y="846" class="mono section">AUTHORITATIVE BANK &amp; ENTERPRISE ECOSYSTEM</text>
+  <g>
+    <rect x="80" y="866" width="220" height="76" fill="#111313" stroke="#2a2e2c"/>
+    <rect x="324" y="866" width="220" height="76" fill="#111313" stroke="#2a2e2c"/>
+    <rect x="568" y="866" width="220" height="76" fill="#111313" stroke="#2a2e2c"/>
+    <rect x="812" y="866" width="220" height="76" fill="#111313" stroke="#2a2e2c"/>
+    <rect x="1056" y="866" width="220" height="76" fill="#111313" stroke="#2a2e2c"/>
+    <rect x="1300" y="866" width="220" height="76" fill="#111313" stroke="#2a2e2c"/>
+  </g>
+  <text x="190" y="898" text-anchor="middle" class="sans cardTitle">Core banking</text><text x="190" y="922" text-anchor="middle" class="sans small">Ledgers &amp; accounts</text>
+  <text x="434" y="898" text-anchor="middle" class="sans cardTitle">Payments</text><text x="434" y="922" text-anchor="middle" class="sans small">Transaction platforms</text>
+  <text x="678" y="898" text-anchor="middle" class="sans cardTitle">CRM</text><text x="678" y="922" text-anchor="middle" class="sans small">Onboarding &amp; servicing</text>
+  <text x="922" y="898" text-anchor="middle" class="sans cardTitle">Data</text><text x="922" y="922" text-anchor="middle" class="sans small">Documents &amp; knowledge</text>
+  <text x="1166" y="898" text-anchor="middle" class="sans cardTitle">Risk</text><text x="1166" y="922" text-anchor="middle" class="sans small">Compliance &amp; security</text>
+  <text x="1410" y="898" text-anchor="middle" class="sans cardTitle">Partners</text><text x="1410" y="922" text-anchor="middle" class="sans small">Regulated services</text>
+
+  <text x="80" y="978" class="mono small">SYSTEMS OF RECORD RETAIN BUSINESS AUTHORITY AND FINAL PERSISTENCE</text>
+  <text x="1520" y="978" text-anchor="end" class="mono small">BANKING AI CORE · VISION</text>
+</svg>

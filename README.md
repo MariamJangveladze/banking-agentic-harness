@@ -4,6 +4,8 @@
 
 [Private portfolio project](https://github.com/MariamJangveladze/banking-agentic-harness) · LangGraph · LangChain · Human approval · Evals · Evidence
 
+![Banking OS target-state architecture](docs/assets/banking-os-architecture.svg)
+
 ## What this is
 
 Banking AI Core is an internal **agent harness**, not a customer chatbot and not a replacement for core banking. It coordinates cases, deterministic workflows, bounded agents, knowledge, policy decisions, human approvals and evidence across internal operations.
@@ -29,6 +31,15 @@ The flagship vertical slice is **Product & Process Change**. A synthetic change 
 ```
 
 **Control principle:** probabilistic components interpret, retrieve, prepare and propose. Deterministic services authorize, persist, commit and control.
+
+## Toward a Banking OS
+
+This harness is a first executable slice of a broader **Banking OS** vision: a governed, composable coordination layer that lets a bank evolve processes, intelligence and integrations without replacing its systems of record or surrendering control to one vendor or model.
+
+The Banking OS is not a new core banking system. It sits above existing systems as an interoperability and control layer, assembling reusable process packages, bounded agents, policies, human decisions and guarded capabilities into auditable operational workflows.
+
+- Read the [Banking OS manifesto](docs/banking-os-manifesto.md) for the case, principles and operating model.
+- See the [Banking OS architecture](docs/banking-os-architecture.md) for the target-state diagram, component boundaries and evolution path.
 
 ## Implemented evidence
 
@@ -91,6 +102,8 @@ processes/product-change/    Versioned process-package manifest
 
 ## Documentation
 
+- [Banking OS manifesto](docs/banking-os-manifesto.md)
+- [Banking OS architecture](docs/banking-os-architecture.md)
 - [Architecture](docs/architecture.md)
 - [Product/Process Change specification](docs/product-change-spec.md)
 - [Evaluation strategy](docs/evaluation-strategy.md)
