@@ -31,18 +31,18 @@ class CaseStatus(StrEnum):
 
 
 class ChangeRequest(BaseModel):
-    title: str = Field(min_length=5)
-    owner: str = Field(min_length=2)
-    business_purpose: str = Field(min_length=10)
-    requested_change: str = Field(min_length=10)
+    title: str = Field(min_length=5, max_length=200)
+    owner: str = Field(min_length=2, max_length=120)
+    business_purpose: str = Field(min_length=10, max_length=4000)
+    requested_change: str = Field(min_length=10, max_length=4000)
     subject_type: SubjectType = SubjectType.PROCESS
-    existing_item_id: str | None = None
-    risk_reference: str | None = None
-    legal_reference: str | None = None
-    infosec_reference: str | None = None
+    existing_item_id: str | None = Field(default=None, max_length=120)
+    risk_reference: str | None = Field(default=None, max_length=120)
+    legal_reference: str | None = Field(default=None, max_length=120)
+    infosec_reference: str | None = Field(default=None, max_length=120)
     aml_applicable: bool = False
-    aml_reference: str | None = None
-    related_department_reference: str | None = None
+    aml_reference: str | None = Field(default=None, max_length=120)
+    related_department_reference: str | None = Field(default=None, max_length=120)
 
 
 class Citation(BaseModel):
@@ -75,5 +75,5 @@ class EvidenceEvent(BaseModel):
 
 class HumanDecision(BaseModel):
     decision: Literal["approve", "reject"]
-    reviewer: str = Field(min_length=2)
-    comment: str = ""
+    reviewer: str = Field(min_length=2, max_length=120)
+    comment: str = Field(default="", max_length=2000)

@@ -76,11 +76,14 @@ npm run dev
 ```bash
 cd backend
 uv sync --dev
-uv run fastapi dev src/banking_harness/api.py
+HARNESS_API_TOKEN="replace-with-a-long-random-local-token" uv run fastapi dev src/banking_harness/api.py --host 127.0.0.1
 uv run pytest
 ```
 
-The backend is keyless and deterministic by default. Optional local mode uses `MODEL_PROVIDER=ollama`, `KNOWLEDGE_PROVIDER=chroma`, `OLLAMA_CHAT_MODEL=qwen2.5:7b`, and `OLLAMA_EMBED_MODEL=nomic-embed-text`.
+The model path is keyless and deterministic by default. Case endpoints require a local bearer
+token via `HARNESS_API_TOKEN`. Optional local mode uses `MODEL_PROVIDER=ollama`,
+`KNOWLEDGE_PROVIDER=chroma`, `OLLAMA_CHAT_MODEL=qwen2.5:7b`, and
+`OLLAMA_EMBED_MODEL=nomic-embed-text`.
 
 ## Repository structure
 
@@ -110,3 +113,8 @@ processes/product-change/    Versioned process-package manifest
 - [Security and portfolio boundaries](docs/security-boundaries.md)
 
 Portfolio demonstration. No real bank data, proprietary procedures or production credentials are included.
+
+## Usage and copyright
+
+Portfolio review only. No open-source license is granted. See [COPYRIGHT.md](COPYRIGHT.md)
+and report security concerns privately as described in [SECURITY.md](SECURITY.md).

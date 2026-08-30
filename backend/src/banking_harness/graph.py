@@ -93,7 +93,10 @@ def build_product_change_graph(
         from .models import ImpactFinding
 
         findings = [ImpactFinding.model_validate(item) for item in state.get("findings", [])]
-        results = evaluate_case(_request(state), findings, state.get("missing_evidence", []))
+        sources = [SourceDocument(**item) for item in state.get("sources", [])]
+        results = evaluate_case(
+            _request(state), findings, state.get("missing_evidence", []), sources
+        )
         return {"eval_results": [result.model_dump() for result in results], "evidence_events": _event("case_evaluated", "eval_service", f"{sum(result.passed for result in results)}/{len(results)} gates passed.")}
 
     def route_eval(state: CaseState) -> Literal["human_review", "eval_escalation"]:
