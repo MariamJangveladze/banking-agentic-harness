@@ -30,7 +30,12 @@ def test_complete_case_pauses_for_product_support_and_resumes() -> None:
     assert all(item["passed"] for item in paused["eval_results"])
     assert paused["__interrupt__"][0].value["kind"] == "product_support_approval"
 
-    completed = graph.invoke(Command(resume={"decision": "approve", "reviewer": "Product Support", "comment": "Evidence verified."}), config)
+    completed = graph.invoke(
+        Command(
+            resume={"decision": "approve", "reviewer": "Product Support", "comment": "Evidence verified."}
+        ),
+        config,
+    )
     assert completed["status"] == CaseStatus.APPROVED.value
     assert completed["controlled_action"]["mode"] == "SIMULATED"
 

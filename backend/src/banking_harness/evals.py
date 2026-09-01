@@ -27,10 +27,38 @@ def evaluate_case(
         else "Not applicable: this request creates a new implementation."
     )
     checks = [
-        EvalResult(name="required_evidence", score=1.0 if not missing else 0.0, threshold=1.0, passed=not missing, detail="All mandatory evidence references supplied." if not missing else f"Missing: {', '.join(missing)}"),
-        EvalResult(name="impact_coverage", score=len(returned_domains & required_domains) / 3, threshold=1.0, passed=returned_domains == required_domains, detail=f"Covered {len(returned_domains)}/3 required domains."),
-        EvalResult(name="citation_coverage", score=min(citation_count / 3, 1.0), threshold=1.0, passed=citation_count >= 3, detail=f"{citation_count} cited impact findings."),
-        EvalResult(name="citation_integrity", score=1.0 if citations_valid else 0.0, threshold=1.0, passed=citations_valid, detail="Every citation resolves to a retrieved source and version." if citations_valid else "One or more citations do not resolve to retrieved evidence."),
+        EvalResult(
+            name="required_evidence",
+            score=1.0 if not missing else 0.0,
+            threshold=1.0,
+            passed=not missing,
+            detail="All mandatory evidence references supplied."
+            if not missing
+            else f"Missing: {', '.join(missing)}",
+        ),
+        EvalResult(
+            name="impact_coverage",
+            score=len(returned_domains & required_domains) / 3,
+            threshold=1.0,
+            passed=returned_domains == required_domains,
+            detail=f"Covered {len(returned_domains)}/3 required domains.",
+        ),
+        EvalResult(
+            name="citation_coverage",
+            score=min(citation_count / 3, 1.0),
+            threshold=1.0,
+            passed=citation_count >= 3,
+            detail=f"{citation_count} cited impact findings.",
+        ),
+        EvalResult(
+            name="citation_integrity",
+            score=1.0 if citations_valid else 0.0,
+            threshold=1.0,
+            passed=citations_valid,
+            detail="Every citation resolves to a retrieved source and version."
+            if citations_valid
+            else "One or more citations do not resolve to retrieved evidence.",
+        ),
         EvalResult(
             name="source_linkage",
             score=1.0,
