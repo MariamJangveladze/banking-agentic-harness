@@ -45,7 +45,7 @@ The Banking OS is not a new core banking system. It sits above existing systems 
 
 | Capability | Status | Evidence |
 |---|---|---|
-| Portfolio-style control plane | Implemented | Six interactive views, EN/KA, dark/light |
+| Portfolio-style control plane | Simulated | Six interactive views backed by clearly labelled synthetic UI data |
 | Product-change process graph | Implemented | Executable LangGraph vertical slice |
 | Parallel impact agents | Implemented | Risk, operations and technology fan-out |
 | Human approval gate | Implemented | Durable `interrupt()` / `Command(resume=...)` flow |
@@ -64,7 +64,8 @@ The Banking OS is not a new core banking system. It sits above existing systems 
 5. Open **Governance** to inspect policy boundaries and guarded capabilities.
 6. Open **System map** to explain the full harness architecture and non-goals.
 
-The hosted web interaction uses synthetic data. The Python backend independently proves the actual LangGraph behavior.
+The hosted web interaction is a static control-plane prototype backed by synthetic arrays; it does
+not call the Python backend. The Python backend independently proves the actual LangGraph behavior.
 
 ## Run locally
 
@@ -84,6 +85,10 @@ The model path is keyless and deterministic by default. Case endpoints require a
 token via `HARNESS_API_TOKEN`. Optional local mode uses `MODEL_PROVIDER=ollama`,
 `KNOWLEDGE_PROVIDER=chroma`, `OLLAMA_CHAT_MODEL=qwen2.5:7b`, and
 `OLLAMA_EMBED_MODEL=nomic-embed-text`.
+
+API testing requires the reviewer's own local access token. Optional hosted
+model testing requires the reviewer's own provider API key. This repository
+does not include API keys, credentials, or reusable secret values.
 
 ## Repository structure
 

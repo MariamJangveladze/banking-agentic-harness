@@ -30,9 +30,29 @@ def test_complete_case_pauses_for_product_support_and_resumes() -> None:
     assert all(item["passed"] for item in paused["eval_results"])
     assert paused["__interrupt__"][0].value["kind"] == "product_support_approval"
 
-    completed = graph.invoke(Command(resume={"decision": "approve", "reviewer": "Product Support", "comment": "Evidence verified."}), config)
+    completed = graph.invoke(
+        Command(
+            resume={"decision": "approve", "reviewer": "Product Support", "comment": "Evidence verified."}
+        ),
+        config,
+    )
     assert completed["status"] == CaseStatus.APPROVED.value
     assert completed["controlled_action"]["mode"] == "SIMULATED"
+
+
+def test_new_implementation_can_reach_product_support_approval() -> None:
+    graph = build_product_change_graph(checkpointer=InMemorySaver())
+    request = complete_request().model_copy(update={"existing_item_id": None})
+    state = new_case_input(request, "CASE-TEST-NEW")
+    config = {"configurable": {"thread_id": state["case_id"]}}
+
+    paused = graph.invoke(state, config)
+
+    assert paused["classification"] == "NEW_IMPLEMENTATION"
+    assert all(item["passed"] for item in paused["eval_results"])
+    source_gate = next(item for item in paused["eval_results"] if item["name"] == "source_linkage")
+    assert source_gate["detail"].startswith("Not applicable")
+    assert paused["__interrupt__"][0].value["kind"] == "product_support_approval"
 
 
 def test_missing_evidence_stops_before_agent_execution() -> None:
